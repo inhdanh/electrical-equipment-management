@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import { useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -14,11 +14,22 @@ import { Avatar, Badge, Button } from "@mui/material";
 import { useRouter } from "next/navigation";
 import SidebarDrawer from "./SidebarDrawer";
 import CartDrawer from "./CartDrawer";
+import { useCartContext } from "@/contexts/cart";
 
 export default function PrimaryAppBar() {
-  const [isOpenSidebar, setIsOpenSidebar] = React.useState(false);
-  const [isOpenCart, setIsOpenCart] = React.useState(false);
+  const [isOpenSidebar, setIsOpenSidebar] = useState(false);
+  const [isOpenCart, setIsOpenCart] = useState(false);
+  const { carts } = useCartContext();
+  const [cartsQuantity, setCartsQuantity] = useState(0);
   const router = useRouter();
+
+  useEffect(() => {
+    const quantity = carts.reduce((total, current) => {
+      return total + current.quantity;
+    }, 0);
+
+    setCartsQuantity(quantity);
+  }, [carts]);
 
   return (
     <>
@@ -64,7 +75,7 @@ export default function PrimaryAppBar() {
               sx={{ mr: 2 }}
               onClick={() => setIsOpenCart(true)}
             >
-              <Badge badgeContent={4} color="error">
+              <Badge badgeContent={cartsQuantity} color="error">
                 <ShoppingCartIcon />
               </Badge>
             </IconButton>

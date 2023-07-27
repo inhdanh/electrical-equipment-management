@@ -1,0 +1,373 @@
+{
+  "equipments": [
+    {
+      "id": "6e8bbf94-8cdb-4e15-a219-d75748de1f74",
+      "name": "Circuit Breaker",
+      "image": "/img/circuit-breaker.jpg",
+      "description": "A circuit breaker is an essential electrical safety device used to protect electrical circuits and appliances from damage caused by overcurrents or short circuits. It acts as a switch that automatically interrupts or breaks the flow of electricity in a circuit when it detects an abnormal current flow.",
+      "countInStock": 5,
+      "price": 20,
+      "createdAt": "2023-07-27T10:15:30Z",
+      "updatedAt": "2023-07-27T14:22:45Z",
+      "vendorId": "6e8bbf94-8cdb-4e15-a219-d75748de1f74",
+      "vendor": {
+        "id": "6e8bbf94-8cdb-4e15-a219-d75748de1f74",
+        "name": "VoltTech Solutions",
+        "description": "VoltTech Solutions is a leading vendor of electrical equipment, specializing in innovative and high-quality products for residential, commercial, and industrial applications. With a diverse range of offerings, including circuit breakers, electrical panels, voltage regulators, and power distribution units, VoltTech Solutions aims to provide reliable solutions that ensure safety and efficiency in electrical systems.",
+        "createdAt": "2023-07-27T10:15:30Z",
+        "updatedAt": "2023-07-27T14:22:45Z"
+      }
+    },
+    {
+      "id": "9a6cdde1-5a2a-42b6-8311-9baf5f55d7c9",
+      "name": "Voltage Regulator",
+      "image": "/img/voltage-regulator.jpeg",
+      "description": "A voltage regulator is an electrical device used to stabilize the output voltage of a power supply. It ensures that the voltage remains constant within a predetermined range, even when the input voltage or load conditions fluctuate. Voltage regulators are crucial in maintaining the proper functioning of sensitive electronic equipment and preventing damage caused by voltage variations.",
+      "countInStock": 8,
+      "price": 30,
+      "createdAt": "2023-07-27T15:40:12Z",
+      "updatedAt": "2023-07-27T18:55:20Z",
+      "vendorId": "9a6cdde1-5a2a-42b6-8311-9baf5f55d7c9",
+      "vendor": {
+        "id": "9a6cdde1-5a2a-42b6-8311-9baf5f55d7c9",
+        "name": "ElectroPower Technologies",
+        "description": "ElectroPower Technologies is a leading supplier of advanced electrical solutions, offering a wide range of smart grid technologies and energy management systems. Their product portfolio includes smart meters, power quality analyzers, demand response controllers, and energy storage solutions. ElectroPower Technologies is committed to facilitating a sustainable and efficient electricity grid for the future.",
+        "createdAt": "2023-07-27T15:40:12Z",
+        "updatedAt": "2023-07-27T18:55:20Z"
+      }
+    },
+    {
+      "id": "45a18267-ef49-48d5-a9b2-7462dbb34c44",
+      "name": "Solar Panel",
+      "image": "/img/solar-panel.avif",
+      "description": "A solar panel, also known as a photovoltaic (PV) panel, is an electrical device that converts sunlight into direct current (DC) electricity. Solar panels are a key component of solar energy systems and are used to harness renewable solar energy for various applications, including powering homes, businesses, and remote installations. They play a crucial role in reducing reliance on traditional fossil fuels and mitigating greenhouse gas emissions.",
+      "countInStock": 12,
+      "price": 150,
+      "createdAt": "2023-07-27T09:12:08Z",
+      "updatedAt": "2023-07-27T13:20:30Z",
+      "vendorId": "45a18267-ef49-48d5-a9b2-7462dbb34c44",
+      "vendor": {
+        "id": "45a18267-ef49-48d5-a9b2-7462dbb34c44",
+        "name": "EcoElectra Solutions",
+        "description": "EcoElectra Solutions is a reputable vendor specializing in eco-friendly electrical equipment and renewable energy solutions. Their product range includes solar panels, wind turbines, electric vehicle charging stations, and energy-efficient LED lighting. EcoElectra Solutions is dedicated to promoting a greener and more sustainable world through their environmentally conscious products.",
+        "createdAt": "2023-07-27T09:12:08Z",
+        "updatedAt": "2023-07-27T13:20:30Z"
+      }
+    },
+    {
+      "id": "1c1cb43f-47f5-4ad1-88a2-c2027b7fc8d6",
+      "name": "Programmable Logic Controller (PLC)",
+      "image": "/img/plc.jpeg",
+      "description": "A Programmable Logic Controller (PLC) is an industrial digital computer used to automate and control manufacturing processes, machinery, and other industrial applications. PLCs are programmable and can be easily customized to perform specific tasks through a graphical programming interface. They are widely used in factories and industries to improve efficiency, accuracy, and reliability in production processes.",
+      "countInStock": 20,
+      "price": 250,
+      "createdAt": "2023-07-27T11:55:24Z",
+      "updatedAt": "2023-07-27T16:00:15Z",
+      "vendorId": "1c1cb43f-47f5-4ad1-88a2-c2027b7fc8d6",
+      "vendor": {
+        "id": "1c1cb43f-47f5-4ad1-88a2-c2027b7fc8d6",
+        "name": "TechPower Automation",
+        "description": "TechPower Automation is a leading provider of state-of-the-art automation and control solutions for electrical systems and industrial processes. Their comprehensive range of products includes programmable logic controllers (PLCs), industrial robots, HMI panels, and process control software. TechPower Automation aims to empower industries with cutting-edge technologies to enhance productivity and efficiency.",
+        "createdAt": "2023-07-27T11:55:24Z",
+        "updatedAt": "2023-07-27T16:00:15Z"
+      }
+    },
+    {
+      "id": "f63a5295-51b2-492a-9bc8-8d3d65efad44",
+      "name": "Power Transformer",
+      "image": "/img/power-transformer.webp",
+      "description": "A power transformer is a vital electrical device used in power transmission and distribution systems to step up or step down voltage levels. It efficiently transfers electrical energy between different voltage levels while maintaining the power frequency. Power transformers play a crucial role in the efficient and reliable transfer of electrical power over long distances, reducing energy losses and ensuring a stable power supply to end consumers.",
+      "countInStock": 6,
+      "price": 800,
+      "createdAt": "2023-07-27T12:30:18Z",
+      "updatedAt": "2023-07-27T17:10:45Z",
+      "vendorId": "f63a5295-51b2-492a-9bc8-8d3d65efad44",
+      "vendor": {
+        "id": "f63a5295-51b2-492a-9bc8-8d3d65efad44",
+        "name": "EnergizePro Solutions",
+        "description": "EnergizePro Solutions is a trusted vendor of power generation and distribution equipment for utility companies and large-scale projects. Their product lineup includes gas and diesel generators, switchgear assemblies, power transformers, and substation automation systems. EnergizePro Solutions is committed to providing reliable and efficient solutions that meet the demands of today's energy-intensive applications.",
+        "createdAt": "2023-07-27T12:30:18Z",
+        "updatedAt": "2023-07-27T17:10:45Z"
+      }
+    }
+  ],
+  "vendors": [
+    {
+      "id": "6e8bbf94-8cdb-4e15-a219-d75748de1f74",
+      "name": "VoltTech Solutions",
+      "description": "VoltTech Solutions is a leading vendor of electrical equipment, specializing in innovative and high-quality products for residential, commercial, and industrial applications. With a diverse range of offerings, including circuit breakers, electrical panels, voltage regulators, and power distribution units, VoltTech Solutions aims to provide reliable solutions that ensure safety and efficiency in electrical systems.",
+      "createdAt": "2023-07-27T10:15:30Z",
+      "updatedAt": "2023-07-27T14:22:45Z"
+    },
+    {
+      "id": "9a6cdde1-5a2a-42b6-8311-9baf5f55d7c9",
+      "name": "ElectroPower Technologies",
+      "description": "ElectroPower Technologies is a leading supplier of advanced electrical solutions, offering a wide range of smart grid technologies and energy management systems. Their product portfolio includes smart meters, power quality analyzers, demand response controllers, and energy storage solutions. ElectroPower Technologies is committed to facilitating a sustainable and efficient electricity grid for the future.",
+      "createdAt": "2023-07-27T15:40:12Z",
+      "updatedAt": "2023-07-27T18:55:20Z"
+    },
+    {
+      "id": "45a18267-ef49-48d5-a9b2-7462dbb34c44",
+      "name": "EcoElectra Solutions",
+      "description": "EcoElectra Solutions is a reputable vendor specializing in eco-friendly electrical equipment and renewable energy solutions. Their product range includes solar panels, wind turbines, electric vehicle charging stations, and energy-efficient LED lighting. EcoElectra Solutions is dedicated to promoting a greener and more sustainable world through their environmentally conscious products.",
+      "createdAt": "2023-07-27T09:12:08Z",
+      "updatedAt": "2023-07-27T13:20:30Z"
+    },
+    {
+      "id": "1c1cb43f-47f5-4ad1-88a2-c2027b7fc8d6",
+      "name": "TechPower Automation",
+      "description": "TechPower Automation is a leading provider of state-of-the-art automation and control solutions for electrical systems and industrial processes. Their comprehensive range of products includes programmable logic controllers (PLCs), industrial robots, HMI panels, and process control software. TechPower Automation aims to empower industries with cutting-edge technologies to enhance productivity and efficiency.",
+      "createdAt": "2023-07-27T11:55:24Z",
+      "updatedAt": "2023-07-27T16:00:15Z"
+    },
+    {
+      "id": "f63a5295-51b2-492a-9bc8-8d3d65efad44",
+      "name": "EnergizePro Solutions",
+      "description": "EnergizePro Solutions is a trusted vendor of power generation and distribution equipment for utility companies and large-scale projects. Their product lineup includes gas and diesel generators, switchgear assemblies, power transformers, and substation automation systems. EnergizePro Solutions is committed to providing reliable and efficient solutions that meet the demands of today's energy-intensive applications.",
+      "createdAt": "2023-07-27T12:30:18Z",
+      "updatedAt": "2023-07-27T17:10:45Z"
+    }
+  ],
+  "users": [
+    {
+      "id": "6e8bbf94-8cdb-4e15-a219-d75748de1f74",
+      "firstName": "John",
+      "lastName": "Doe",
+      "telephone": 1234567890,
+      "email": "john.doe@example.com",
+      "role": "user",
+      "status": "active",
+      "createdAt": "2023-07-27T10:00:00Z",
+      "updatedAt": "2023-07-27T15:30:45Z"
+    },
+    {
+      "id": "9a6cdde1-5a2a-42b6-8311-9baf5f55d7c9",
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "telephone": 9876543210,
+      "email": "jane.smith@example.com",
+      "role": "admin",
+      "status": "active",
+      "createdAt": "2023-07-27T11:15:20Z",
+      "updatedAt": "2023-07-27T16:45:12Z"
+    },
+    {
+      "id": "45a18267-ef49-48d5-a9b2-7462dbb34c44",
+      "firstName": "Mike",
+      "lastName": "Jackson",
+      "telephone": 5555555555,
+      "email": "mike.jackson@example.com",
+      "role": "user",
+      "status": "inactive",
+      "createdAt": "2023-07-27T09:30:10Z",
+      "updatedAt": "2023-07-27T14:10:30Z"
+    },
+    {
+      "id": "1c1cb43f-47f5-4ad1-88a2-c2027b7fc8d6",
+      "firstName": "Susan",
+      "lastName": "Adams",
+      "telephone": 9998887777,
+      "email": "susan.adams@example.com",
+      "role": "user",
+      "status": "active",
+      "createdAt": "2023-07-27T12:40:55Z",
+      "updatedAt": "2023-07-27T17:20:25Z"
+    }
+  ],
+  "orderDetails": [
+    {
+      "id": "c45feb3d-7f30-4954-addc-e540b1f573e0",
+      "userId": "6e8bbf94-8cdb-4e15-a219-d75748de1f74",
+      "user": {
+        "id": "6e8bbf94-8cdb-4e15-a219-d75748de1f74",
+        "firstName": "John",
+        "lastName": "Doe",
+        "telephone": 1234567890,
+        "email": "john.doe@example.com",
+        "role": "user",
+        "status": "active",
+        "createdAt": "2023-07-27T10:00:00Z",
+        "updatedAt": "2023-07-27T15:30:45Z"
+      },
+      "totalPrice": 50.75,
+      "status": "pending",
+      "createdAt": "2023-07-27T16:20:00Z",
+      "updatedAt": "2023-07-27T16:20:00Z"
+    },
+    {
+      "id": "fb9784a4-6174-4646-81c2-2569e65ef3dc",
+      "userId": "9a6cdde1-5a2a-42b6-8311-9baf5f55d7c9",
+      "user": {
+        "id": "9a6cdde1-5a2a-42b6-8311-9baf5f55d7c9",
+        "firstName": "Jane",
+        "lastName": "Smith",
+        "telephone": 9876543210,
+        "email": "jane.smith@example.com",
+        "role": "admin",
+        "status": "active",
+        "createdAt": "2023-07-27T11:15:20Z",
+        "updatedAt": "2023-07-27T16:45:12Z"
+      },
+      "totalPrice": 120.99,
+      "status": "completed",
+      "createdAt": "2023-07-27T17:40:30Z",
+      "updatedAt": "2023-07-27T17:40:30Z"
+    },
+    {
+      "id": "3a0e1924-a052-4f88-bcdd-7ba2095bc77b",
+      "userId": "45a18267-ef49-48d5-a9b2-7462dbb34c44",
+      "user": {
+        "id": "45a18267-ef49-48d5-a9b2-7462dbb34c44",
+        "firstName": "Mike",
+        "lastName": "Jackson",
+        "telephone": 5555555555,
+        "email": "mike.jackson@example.com",
+        "role": "user",
+        "status": "inactive",
+        "createdAt": "2023-07-27T09:30:10Z",
+        "updatedAt": "2023-07-27T14:10:30Z"
+      },
+      "totalPrice": 75.25,
+      "status": "shipped",
+      "createdAt": "2023-07-27T14:55:12Z",
+      "updatedAt": "2023-07-27T14:55:12Z"
+    }
+  ],
+  "orderItems": [
+    {
+      "id": "a1b2c3d4-001",
+      "orderId": "c45feb3d-7f30-4954-addc-e540b1f573e0",
+      "order": {
+        "id": "c45feb3d-7f30-4954-addc-e540b1f573e0",
+        "userId": "6e8bbf94-8cdb-4e15-a219-d75748de1f74",
+        "user": {
+          "id": "6e8bbf94-8cdb-4e15-a219-d75748de1f74",
+          "firstName": "John",
+          "lastName": "Doe",
+          "telephone": 1234567890,
+          "email": "john.doe@example.com",
+          "role": "user",
+          "status": "active",
+          "createdAt": "2023-07-27T10:00:00Z",
+          "updatedAt": "2023-07-27T15:30:45Z"
+        },
+        "totalPrice": 50.75,
+        "status": "pending",
+        "createdAt": "2023-07-27T16:20:00Z",
+        "updatedAt": "2023-07-27T16:20:00Z"
+      },
+      "equipmentId": "6e8bbf94-8cdb-4e15-a219-d75748de1f74",
+      "equipment": {
+        "id": "6e8bbf94-8cdb-4e15-a219-d75748de1f74",
+        "name": "Circuit Breaker",
+        "image": "/img/circuit-breaker.jpg",
+        "description": "A circuit breaker is an essential electrical safety device used to protect electrical circuits and appliances from damage caused by overcurrents or short circuits. It acts as a switch that automatically interrupts or breaks the flow of electricity in a circuit when it detects an abnormal current flow.",
+        "countInStock": 5,
+        "price": 20,
+        "createdAt": "2023-07-27T10:15:30Z",
+        "updatedAt": "2023-07-27T14:22:45Z",
+        "vendorId": "6e8bbf94-8cdb-4e15-a219-d75748de1f74",
+        "vendor": {
+          "id": "6e8bbf94-8cdb-4e15-a219-d75748de1f74",
+          "name": "VoltTech Solutions",
+          "description": "VoltTech Solutions is a leading vendor of electrical equipment, specializing in innovative and high-quality products for residential, commercial, and industrial applications. With a diverse range of offerings, including circuit breakers, electrical panels, voltage regulators, and power distribution units, VoltTech Solutions aims to provide reliable solutions that ensure safety and efficiency in electrical systems.",
+          "createdAt": "2023-07-27T10:15:30Z",
+          "updatedAt": "2023-07-27T14:22:45Z"
+        }
+      },
+      "quantity": 2,
+      "createdAt": "2023-07-27T16:30:15Z",
+      "updatedAt": "2023-07-27T16:30:15Z"
+    },
+    {
+      "id": "a1b2c3d4-002",
+      "orderId": "fb9784a4-6174-4646-81c2-2569e65ef3dc",
+      "order": {
+        "id": "fb9784a4-6174-4646-81c2-2569e65ef3dc",
+        "userId": "9a6cdde1-5a2a-42b6-8311-9baf5f55d7c9",
+        "user": {
+          "id": "9a6cdde1-5a2a-42b6-8311-9baf5f55d7c9",
+          "firstName": "Jane",
+          "lastName": "Smith",
+          "telephone": 9876543210,
+          "email": "jane.smith@example.com",
+          "role": "admin",
+          "status": "active",
+          "createdAt": "2023-07-27T11:15:20Z",
+          "updatedAt": "2023-07-27T16:45:12Z"
+        },
+        "totalPrice": 120.99,
+        "status": "completed",
+        "createdAt": "2023-07-27T17:40:30Z",
+        "updatedAt": "2023-07-27T17:40:30Z"
+      },
+      "equipmentId": "9a6cdde1-5a2a-42b6-8311-9baf5f55d7c9",
+      "equipment": {
+        "id": "9a6cdde1-5a2a-42b6-8311-9baf5f55d7c9",
+        "name": "Voltage Regulator",
+        "image": "/img/voltage-regulator.jpg",
+        "description": "A voltage regulator is an electrical device used to stabilize the output voltage of a power supply. It ensures that the voltage remains constant within a predetermined range, even when the input voltage or load conditions fluctuate. Voltage regulators are crucial in maintaining the proper functioning of sensitive electronic equipment and preventing damage caused by voltage variations.",
+        "countInStock": 8,
+        "price": 30,
+        "createdAt": "2023-07-27T15:40:12Z",
+        "updatedAt": "2023-07-27T18:55:20Z",
+        "vendorId": "9a6cdde1-5a2a-42b6-8311-9baf5f55d7c9",
+        "vendor": {
+          "id": "9a6cdde1-5a2a-42b6-8311-9baf5f55d7c9",
+          "name": "ElectroTech Pro",
+          "description": "ElectroTech Pro specializes in cutting-edge electrical equipment solutions for industrial and commercial applications. Their product range includes voltage regulators, power transformers, motor control panels, and advanced automation systems. With a commitment to excellence and customer satisfaction, ElectroTech Pro is a trusted partner in the electrical industry.",
+          "createdAt": "2023-07-27T15:40:12Z",
+          "updatedAt": "2023-07-27T18:55:20Z"
+        }
+      },
+      "quantity": 1,
+      "createdAt": "2023-07-27T18:00:45Z",
+      "updatedAt": "2023-07-27T18:00:45Z"
+    },
+    {
+      "id": "a1b2c3d4-003",
+      "orderId": "3a0e1924-a052-4f88-bcdd-7ba2095bc77b",
+      "order": {
+        "id": "3a0e1924-a052-4f88-bcdd-7ba2095bc77b",
+        "userId": "45a18267-ef49-48d5-a9b2-7462dbb34c44",
+        "user": {
+          "id": "45a18267-ef49-48d5-a9b2-7462dbb34c44",
+          "firstName": "Mike",
+          "lastName": "Jackson",
+          "telephone": 5555555555,
+          "email": "mike.jackson@example.com",
+          "role": "user",
+          "status": "inactive",
+          "createdAt": "2023-07-27T09:30:10Z",
+          "updatedAt": "2023-07-27T14:10:30Z"
+        },
+        "totalPrice": 75.25,
+        "status": "shipped",
+        "createdAt": "2023-07-27T14:55:12Z",
+        "updatedAt": "2023-07-27T14:55:12Z"
+      },
+      "equipmentId": "45a18267-ef49-48d5-a9b2-7462dbb34c44",
+      "equipment": {
+        "id": "45a18267-ef49-48d5-a9b2-7462dbb34c44",
+        "name": "Power Distribution Unit",
+        "image": "/img/power-distribution-unit.jpg",
+        "description": "A power distribution unit (PDU) is an electrical device used to distribute electric power to multiple devices within a data center, server rack, or industrial environment. PDUs provide a convenient way to manage and control power distribution, ensuring each device receives the necessary power without overloading the electrical circuits.",
+        "countInStock": 10,
+        "price": 50,
+        "createdAt": "2023-07-27T13:30:25Z",
+        "updatedAt": "2023-07-27T15:40:40Z",
+        "vendorId": "45a18267-ef49-48d5-a9b2-7462dbb34c44",
+        "vendor": {
+          "id": "45a18267-ef49-48d5-a9b2-7462dbb34c44",
+          "name": "EnerGen Solutions",
+          "description": "EnerGen Solutions is a trusted provider of power distribution solutions for various industries, including data centers, telecommunications, and manufacturing facilities. Their advanced power distribution units and reliable electrical equipment ensure seamless power delivery and enhanced energy efficiency for businesses of all sizes.",
+          "createdAt": "2023-07-27T13:30:25Z",
+          "updatedAt": "2023-07-27T15:40:40Z"
+        }
+      },
+      "quantity": 3,
+      "createdAt": "2023-07-27T19:15:00Z",
+      "updatedAt": "2023-07-27T19:15:00Z"
+    }
+  ]
+}

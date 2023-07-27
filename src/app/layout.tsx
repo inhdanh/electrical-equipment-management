@@ -1,10 +1,12 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
-import PrimaryAppBar from "./components/Header";
+import PrimaryAppBar from "@/components/Header";
+import QueryProvider from "@/utils/queryProvider";
+import { CartProvider } from "@/contexts/cart";
 
 const roboto = Roboto({
-  weight: ["100", "300", "400", "500", "700"],
+  weight: ["100", "300", "400", "500", "700", "900"],
   subsets: ["latin"],
 });
 
@@ -21,8 +23,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <PrimaryAppBar />
-        <main>{children}</main>
+        <QueryProvider>
+          <CartProvider>
+            <PrimaryAppBar />
+            <main>{children}</main>
+          </CartProvider>
+        </QueryProvider>
       </body>
     </html>
   );
