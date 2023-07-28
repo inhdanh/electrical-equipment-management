@@ -25,6 +25,7 @@ declare interface User {
   firstName: string;
   lastName: string;
   telephone: number;
+  address: string;
   email: string;
   role: string;
   status: string;
@@ -34,8 +35,10 @@ declare interface User {
 
 declare interface OrderDetail {
   id: string;
+  code: string;
   userId: string;
   user: User;
+  address: string;
   totalPrice: number;
   status: string;
   createdAt: string;

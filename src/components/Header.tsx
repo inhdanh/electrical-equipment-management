@@ -9,6 +9,7 @@ import Typography from "@mui/material/Typography";
 import MenuIcon from "@mui/icons-material/Menu";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
+import HomeIcon from "@mui/icons-material/Home";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import { Avatar, Badge, Button } from "@mui/material";
 import { useRouter } from "next/navigation";
@@ -18,8 +19,7 @@ import { useCartContext } from "@/contexts/cart";
 
 export default function PrimaryAppBar() {
   const [isOpenSidebar, setIsOpenSidebar] = useState(false);
-  const [isOpenCart, setIsOpenCart] = useState(false);
-  const { carts } = useCartContext();
+  const { carts, setOpenDrawer } = useCartContext();
   const [cartsQuantity, setCartsQuantity] = useState(0);
   const router = useRouter();
 
@@ -47,11 +47,18 @@ export default function PrimaryAppBar() {
               <MenuIcon />
             </IconButton>
 
-            <Typography
+            <IconButton
+              sx={{ color: "white" }}
               onClick={() => router.push("/")}
-              variant="h6"
+            >
+              <HomeIcon />
+            </IconButton>
+
+            <Typography
               component="div"
-              sx={{ flexGrow: 1, cursor: "pointer" }}
+              sx={{
+                flexGrow: 1,
+              }}
             >
               Electrical Equipment Management System
             </Typography>
@@ -73,7 +80,7 @@ export default function PrimaryAppBar() {
               color="inherit"
               aria-label="menu"
               sx={{ mr: 2 }}
-              onClick={() => setIsOpenCart(true)}
+              onClick={() => setOpenDrawer(true)}
             >
               <Badge badgeContent={cartsQuantity} color="error">
                 <ShoppingCartIcon />
@@ -105,7 +112,7 @@ export default function PrimaryAppBar() {
         isOpen={isOpenSidebar}
         onClose={() => setIsOpenSidebar(false)}
       />
-      <CartDrawer isOpen={isOpenCart} onClose={() => setIsOpenCart(false)} />
+      <CartDrawer />
     </>
   );
 }

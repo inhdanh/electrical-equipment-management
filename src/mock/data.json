@@ -181,6 +181,7 @@
   "orderDetails": [
     {
       "id": "c45feb3d-7f30-4954-addc-e540b1f573e0",
+      "code": "EE-2023-07-26-001",
       "userId": "6e8bbf94-8cdb-4e15-a219-d75748de1f74",
       "user": {
         "id": "6e8bbf94-8cdb-4e15-a219-d75748de1f74",
@@ -201,6 +202,7 @@
     },
     {
       "id": "fb9784a4-6174-4646-81c2-2569e65ef3dc",
+      "code": "EE-2023-07-26-002",
       "userId": "9a6cdde1-5a2a-42b6-8311-9baf5f55d7c9",
       "user": {
         "id": "9a6cdde1-5a2a-42b6-8311-9baf5f55d7c9",
@@ -221,6 +223,7 @@
     },
     {
       "id": "3a0e1924-a052-4f88-bcdd-7ba2095bc77b",
+      "code": "EE-2023-07-26-003",
       "userId": "45a18267-ef49-48d5-a9b2-7462dbb34c44",
       "user": {
         "id": "45a18267-ef49-48d5-a9b2-7462dbb34c44",
@@ -233,6 +236,7 @@
         "createdAt": "2023-07-27T09:30:10Z",
         "updatedAt": "2023-07-27T14:10:30Z"
       },
+      "address": "765 Oak Avenue, Willowbrook, CA 90220, USA",
       "totalPrice": 75.25,
       "status": "shipped",
       "createdAt": "2023-07-27T14:55:12Z",
@@ -311,7 +315,7 @@
       "equipment": {
         "id": "9a6cdde1-5a2a-42b6-8311-9baf5f55d7c9",
         "name": "Voltage Regulator",
-        "image": "/img/voltage-regulator.jpg",
+        "image": "/img/voltage-regulator.jpeg",
         "description": "A voltage regulator is an electrical device used to stabilize the output voltage of a power supply. It ensures that the voltage remains constant within a predetermined range, even when the input voltage or load conditions fluctuate. Voltage regulators are crucial in maintaining the proper functioning of sensitive electronic equipment and preventing damage caused by voltage variations.",
         "countInStock": 8,
         "price": 30,

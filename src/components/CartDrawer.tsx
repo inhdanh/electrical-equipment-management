@@ -18,13 +18,8 @@ import {
 import { useCartContext } from "@/contexts/cart";
 import { ChangeEvent } from "react";
 
-interface Props {
-  isOpen: boolean;
-  onClose: () => void;
-}
-
-export default function CartDrawer(props: Props) {
-  const { carts, setCarts } = useCartContext();
+export default function CartDrawer() {
+  const { carts, setCarts, openDrawer, setOpenDrawer } = useCartContext();
 
   const handleChangeQuantity = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -55,9 +50,13 @@ export default function CartDrawer(props: Props) {
   };
 
   return (
-    <Drawer anchor="right" open={props.isOpen} onClose={props.onClose}>
+    <Drawer
+      anchor="right"
+      open={openDrawer}
+      onClose={() => setOpenDrawer(false)}
+    >
       {carts.length > 0 ? (
-        <Box sx={{ p: 2, width: 400 }}>
+        <Box sx={{ p: 2, width: 550 }}>
           <Typography sx={{ textAlign: "center", my: 5 }} variant="h5">
             Cart
           </Typography>
@@ -68,6 +67,7 @@ export default function CartDrawer(props: Props) {
                 <TableRow>
                   <TableCell>Equipment</TableCell>
                   <TableCell>Quantity</TableCell>
+                  <TableCell>Unit Cost</TableCell>
                   <TableCell>Total Price</TableCell>
                 </TableRow>
               </TableHead>
@@ -95,13 +95,14 @@ export default function CartDrawer(props: Props) {
                         sx={{ width: "75px" }}
                       />
                     </TableCell>
+                    <TableCell>{cart.price}</TableCell>
                     <TableCell align="center">
                       {cart.price * cart.quantity}$
                     </TableCell>
                   </TableRow>
                 ))}
                 <TableRow>
-                  <TableCell colSpan={3}>
+                  <TableCell colSpan={4}>
                     <Typography sx={{ textAlign: "end", fontWeight: "bold" }}>
                       Total: {getTotalAmount()}$
                     </Typography>
@@ -119,7 +120,7 @@ export default function CartDrawer(props: Props) {
         <Box
           sx={{
             p: 2,
-            width: 400,
+            width: 550,
             display: "flex",
             flexDirection: "column",
             gap: 2,
@@ -129,7 +130,7 @@ export default function CartDrawer(props: Props) {
           }}
         >
           <Typography variant="h5">Empty cart</Typography>
-          <Button variant="contained" onClick={props.onClose}>
+          <Button variant="contained" onClick={() => setOpenDrawer(false)}>
             Continue to shopping
           </Button>
         </Box>

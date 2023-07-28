@@ -16,15 +16,19 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { useQuery } from "@tanstack/react-query";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+
   const query = useQuery({
     queryKey: ["equipments"],
-    queryFn: getEquipmentList,
+    queryFn: async () => await getEquipmentList(),
   });
 
-  const { carts, setCarts } = useCartContext();
+  const { carts, setCarts, setOpenDrawer } = useCartContext();
 
   const addToCarts = (equipment: Equipment) => {
     if (!carts.find((cart) => cart.id === equipment.id)) {
@@ -41,6 +45,8 @@ export default function Home() {
 
       setCarts(newCarts);
     }
+
+    setOpenDrawer(true);
   };
 
   return (
@@ -63,7 +69,9 @@ export default function Home() {
             : query.data?.data.map((equipment: Equipment) => (
                 <Grid key={equipment.id} item xs={3}>
                   <Card>
-                    <CardActionArea>
+                    <CardActionArea
+                      onClick={() => router.push(`/equipments/${equipment.id}`)}
+                    >
                       <CardMedia
                         component="img"
                         height="200"
@@ -97,6 +105,7 @@ export default function Home() {
                         variant="contained"
                         onClick={() => addToCarts(equipment)}
                       >
+                        <AddShoppingCartIcon sx={{ mr: 1 }} />
                         Add to carts
                       </Button>
                     </CardActions>

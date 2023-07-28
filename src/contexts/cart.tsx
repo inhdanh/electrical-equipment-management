@@ -13,11 +13,15 @@ import {
 interface CartContextType {
   carts: Cart[];
   setCarts: Dispatch<SetStateAction<Cart[]>>;
+  openDrawer: boolean;
+  setOpenDrawer: Dispatch<SetStateAction<boolean>>;
 }
 
 const CartContext = createContext<CartContextType>({
   carts: [],
   setCarts: () => {},
+  openDrawer: false,
+  setOpenDrawer: () => {},
 });
 
 interface PropsType {
@@ -41,13 +45,16 @@ const getInitialStorage = (): Cart[] => {
 
 const CartProvider = (props: PropsType) => {
   const [carts, setCarts] = useState<Cart[]>(getInitialStorage);
+  const [openDrawer, setOpenDrawer] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("carts", JSON.stringify(carts));
   }, [carts]);
 
   return (
-    <CartContext.Provider value={{ carts, setCarts }}>
+    <CartContext.Provider
+      value={{ carts, setCarts, openDrawer, setOpenDrawer }}
+    >
       {props.children}
     </CartContext.Provider>
   );
