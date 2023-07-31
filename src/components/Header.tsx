@@ -11,11 +11,12 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import HomeIcon from "@mui/icons-material/Home";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import { Avatar, Badge, Button } from "@mui/material";
+import { Avatar, Badge, Button, Menu } from "@mui/material";
 import { useRouter } from "next/navigation";
 import SidebarDrawer from "./SidebarDrawer";
 import CartDrawer from "./CartDrawer";
 import { useCartContext } from "@/contexts/cart";
+import UserMenu from "./UserMenu";
 
 export default function PrimaryAppBar() {
   const [isOpenSidebar, setIsOpenSidebar] = useState(false);
@@ -100,7 +101,7 @@ export default function PrimaryAppBar() {
               </Badge>
             </IconButton>
 
-            <Avatar>U</Avatar>
+            <UserMenu />
 
             <Button color="inherit" onClick={() => router.push("/login")}>
               Login

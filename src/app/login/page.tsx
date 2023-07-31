@@ -1,6 +1,7 @@
 "use client";
 
 import { Box, Button, TextField, Typography } from "@mui/material";
+import Link from "next/link";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 interface Inputs {
@@ -53,6 +54,18 @@ export default function Login() {
               error={!!errors.password}
               helperText={errors.password && "Please input your password!"}
             />
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+              }}
+            >
+              <Typography variant="body2">
+                Don&apos;t have an account?
+              </Typography>
+              <Link href="/register">Register</Link>
+            </Box>
             <Button variant="contained" type="submit">
               Login
             </Button>
