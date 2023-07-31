@@ -8,6 +8,10 @@ export const getEquipmentById = (id: string) => {
   return makeRequest.get(`/equipments/${id}`);
 };
 
+export const getVendorList = (params?: any) => {
+  return makeRequest.get("/vendors", { params });
+};
+
 export const getVendorById = (id: string) => {
   return makeRequest.get(`/vendors/${id}`);
 };

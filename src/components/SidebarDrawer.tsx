@@ -27,7 +27,13 @@ export default function SidebarDrawer(props: Props) {
         <Toolbar />
         <Divider />
         <List>
-          <ListItem disablePadding onClick={() => router.push("/equipments")}>
+          <ListItem
+            disablePadding
+            onClick={() => {
+              router.push("/");
+              props.onClose();
+            }}
+          >
             <ListItemButton>
               <ListItemIcon>
                 <DynamicFormIcon />
@@ -35,7 +41,13 @@ export default function SidebarDrawer(props: Props) {
               <ListItemText primary="Equipments" />
             </ListItemButton>
           </ListItem>
-          <ListItem disablePadding onClick={() => router.push("/vendors")}>
+          <ListItem
+            disablePadding
+            onClick={() => {
+              router.push("/vendors");
+              props.onClose();
+            }}
+          >
             <ListItemButton>
               <ListItemIcon>
                 <PersonIcon />
