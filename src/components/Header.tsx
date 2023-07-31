@@ -17,10 +17,12 @@ import SidebarDrawer from "./SidebarDrawer";
 import CartDrawer from "./CartDrawer";
 import { useCartContext } from "@/contexts/cart";
 import UserMenu from "./UserMenu";
+import { useUserContext } from "@/contexts/user";
 
 export default function PrimaryAppBar() {
   const [isOpenSidebar, setIsOpenSidebar] = useState(false);
   const { carts, setOpenDrawer } = useCartContext();
+  const { user, setUser } = useUserContext();
   const [cartsQuantity, setCartsQuantity] = useState(0);
   const router = useRouter();
 
@@ -101,11 +103,13 @@ export default function PrimaryAppBar() {
               </Badge>
             </IconButton>
 
-            <UserMenu />
-
-            <Button color="inherit" onClick={() => router.push("/login")}>
-              Login
-            </Button>
+            {user ? (
+              <UserMenu />
+            ) : (
+              <Button color="inherit" onClick={() => router.push("/login")}>
+                Login
+              </Button>
+            )}
           </Toolbar>
         </AppBar>
       </Box>

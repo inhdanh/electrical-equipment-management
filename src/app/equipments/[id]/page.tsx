@@ -7,8 +7,6 @@ import {
   Card,
   CardMedia,
   Container,
-  Divider,
-  Link,
   Table,
   TableBody,
   TableCell,
@@ -22,13 +20,14 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { useQuery } from "@tanstack/react-query";
 import { ChangeEvent, ChangeEventHandler, useState } from "react";
 import { useCartContext } from "@/contexts/cart";
+import Link from "next/link";
 
 interface Props {
   params: { id: string };
 }
 export default function EquipmentDetail(props: Props) {
   const [amount, setAmount] = useState<number | "">("");
-  const { carts, setCarts, openDrawer, setOpenDrawer } = useCartContext();
+  const { carts, setCarts, setOpenDrawer } = useCartContext();
 
   const query = useQuery({
     queryKey: ["equipments", props.params.id],
@@ -98,7 +97,11 @@ export default function EquipmentDetail(props: Props) {
                 <TableBody>
                   <TableRow>
                     <TableCell>
-                      {<Link component="button">{equipment.vendor.name}</Link>}
+                      {
+                        <Link href={`/vendors/${equipment.vendorId}`}>
+                          {equipment.vendor.name}
+                        </Link>
+                      }
                     </TableCell>
                     <TableCell>{equipment.countInStock}</TableCell>
                     <TableCell>{equipment.price}$</TableCell>

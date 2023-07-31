@@ -23,16 +23,16 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useQuery } from "@tanstack/react-query";
 import moment from "moment";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Login() {
   const [selectedOrder, setSelectedOrder] = useState<OrderDetail | null>(null);
+  const router = useRouter();
 
   const query = useQuery({
     queryKey: ["myOrders"],
     queryFn: async () => await getMyOrderList(),
   });
-
-  console.log("query", query);
 
   const queryItems = useQuery({
     queryKey: ["orderItemsDetail", selectedOrder?.id],
@@ -96,7 +96,7 @@ export default function Login() {
             <CloseIcon />
           </IconButton>
         </DialogTitle>
-        <Container>
+        <Container sx={{ px: 10, py: 5 }}>
           <TableContainer component={Paper}>
             <Table>
               <TableHead>
@@ -122,7 +122,16 @@ export default function Login() {
                             src={orderItem.equipment.image}
                             variant="rounded"
                           />
-                          <Typography>{orderItem.equipment.name}</Typography>
+                          <Link
+                            component="button"
+                            onClick={() =>
+                              router.push(
+                                `/equipments/${orderItem.equipment.id}`
+                              )
+                            }
+                          >
+                            <Typography>{orderItem.equipment.name}</Typography>
+                          </Link>
                         </Box>
                       </TableCell>
                       <TableCell align="center">{orderItem.quantity}</TableCell>

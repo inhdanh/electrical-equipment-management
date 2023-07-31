@@ -4,7 +4,6 @@ import {
   Button,
   Divider,
   Drawer,
-  IconButton,
   Paper,
   Table,
   TableBody,
@@ -17,9 +16,14 @@ import {
 } from "@mui/material";
 import { useCartContext } from "@/contexts/cart";
 import { ChangeEvent } from "react";
+import { useUserContext } from "@/contexts/user";
+import _ from "lodash";
+import { useRouter } from "next/navigation";
 
 export default function CartDrawer() {
   const { carts, setCarts, openDrawer, setOpenDrawer } = useCartContext();
+  const router = useRouter();
+  const { user } = useUserContext();
 
   const handleChangeQuantity = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -47,6 +51,20 @@ export default function CartDrawer() {
     return carts.reduce((total, current) => {
       return total + current.quantity * current.price;
     }, 0);
+  };
+
+  const checkout = () => {
+    if (!user) {
+      router.push("/login");
+      setOpenDrawer(false);
+      return;
+    }
+
+    const payload = {
+      userId: user?.id,
+      equipments: carts.map((cart) => _.pick(cart, ["id", "quantity"])),
+    };
+    console.log("payload", payload);
   };
 
   return (
@@ -112,7 +130,12 @@ export default function CartDrawer() {
             </Table>
           </TableContainer>
 
-          <Button sx={{ mt: 3 }} fullWidth variant="contained">
+          <Button
+            sx={{ mt: 3 }}
+            fullWidth
+            variant="contained"
+            onClick={checkout}
+          >
             Check out
           </Button>
         </Box>

@@ -1,8 +1,10 @@
-import { Avatar, Button, IconButton, Menu, MenuItem } from "@mui/material";
+import { useUserContext } from "@/contexts/user";
+import { Avatar, Box, Button, IconButton, Menu, MenuItem } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function UserMenu() {
+  const { user, setUser } = useUserContext();
   const router = useRouter();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -13,15 +15,19 @@ export default function UserMenu() {
     setAnchorEl(null);
   };
 
+  const logout = () => {
+    setUser(null);
+  };
+
   return (
-    <div>
+    <Box>
       <IconButton onClick={handleClick}>
-        <Avatar>AV</Avatar>
+        <Avatar>{`${user?.firstName?.at(0)}${user?.lastName?.at(0)}`}</Avatar>
       </IconButton>
       <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
         <MenuItem onClick={() => router.push("/profile")}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={logout}>Log out</MenuItem>
       </Menu>
-    </div>
+    </Box>
   );
 }

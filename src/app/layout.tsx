@@ -4,6 +4,7 @@ import { Roboto } from "next/font/google";
 import PrimaryAppBar from "@/components/Header";
 import QueryProvider from "@/utils/queryProvider";
 import { CartProvider } from "@/contexts/cart";
+import { UserProvider } from "@/contexts/user";
 
 const roboto = Roboto({
   weight: ["100", "300", "400", "500", "700", "900"],
@@ -24,10 +25,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={roboto.className}>
         <QueryProvider>
-          <CartProvider>
-            <PrimaryAppBar />
-            <main>{children}</main>
-          </CartProvider>
+          <UserProvider>
+            <CartProvider>
+              <PrimaryAppBar />
+              <main>{children}</main>
+            </CartProvider>
+          </UserProvider>
         </QueryProvider>
       </body>
     </html>

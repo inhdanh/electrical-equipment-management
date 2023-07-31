@@ -1,7 +1,9 @@
 "use client";
 
+import { useUserContext } from "@/contexts/user";
 import { Box, Button, TextField, Typography } from "@mui/material";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 interface Inputs {
@@ -10,6 +12,9 @@ interface Inputs {
 }
 
 export default function Login() {
+  const { user, setUser } = useUserContext();
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -17,7 +22,21 @@ export default function Login() {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    setUser({
+      id: "6e8bbf94-8cdb-4e15-a219-d75748de1f74",
+      firstName: "John",
+      lastName: "Doe",
+      telephone: 1234567890,
+      address: "789 Pine Lane, Meadowville, NY 10001, USA",
+      email: "john.doe@example.com",
+      role: "user",
+      status: "active",
+      createdAt: "2023-07-27T10:00:00Z",
+      updatedAt: "2023-07-27T15:30:45Z",
+    });
+    router.push("/");
+  };
 
   console.log(watch("username"));
 
