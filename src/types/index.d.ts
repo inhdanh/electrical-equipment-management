@@ -41,6 +41,7 @@ declare interface OrderDetail {
   address: string;
   totalPrice: number;
   status: string;
+  items: OrderItem[];
   createdAt: string;
   updatedAt: string;
 }

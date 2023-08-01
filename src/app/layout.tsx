@@ -5,6 +5,8 @@ import PrimaryAppBar from "@/components/Header";
 import QueryProvider from "@/utils/queryProvider";
 import { CartProvider } from "@/contexts/cart";
 import { UserProvider } from "@/contexts/user";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const roboto = Roboto({
   weight: ["100", "300", "400", "500", "700", "900"],
@@ -32,6 +34,7 @@ export default function RootLayout({
             </CartProvider>
           </UserProvider>
         </QueryProvider>
+        <ToastContainer position="top-center" autoClose={3000} closeOnClick />
       </body>
     </html>
   );

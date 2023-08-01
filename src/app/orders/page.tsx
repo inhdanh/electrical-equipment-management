@@ -38,13 +38,14 @@ export default function Login() {
     enabled: !!user?.id,
   });
 
-  const queryItems = useQuery({
-    queryKey: ["orderItemsDetail", selectedOrder?.id],
-    // queryFn: async ({ queryKey }) =>
-    //   await getOrderItemList({ orderId: queryKey[1] }),
-    queryFn: async ({ queryKey }) => await getOrderItemList(),
-    enabled: !!selectedOrder?.id,
-  });
+  if (!query.data?.data)
+    return (
+      <Typography sx={{ mt: 5, textAlign: "center" }}>
+        No order found.
+      </Typography>
+    );
+
+  console.log("selectedOrder", selectedOrder);
 
   return (
     <Container sx={{ mt: 3 }}>
@@ -77,7 +78,7 @@ export default function Login() {
                   </Link>
                 </TableCell>
                 <TableCell>{orderDetail.address}</TableCell>
-                <TableCell>{orderDetail.totalPrice}</TableCell>
+                <TableCell>{orderDetail.totalPrice}$</TableCell>
                 <TableCell>{orderDetail.status}</TableCell>
                 <TableCell>
                   {moment(orderDetail.createdAt).format("YYYY-MM-DD hh:mm")}
@@ -113,7 +114,7 @@ export default function Login() {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {queryItems.data?.data.map(
+                {selectedOrder?.items.map(
                   (orderItem: OrderItem, index: number) => (
                     <TableRow key={orderItem.id}>
                       <TableCell>{index + 1}</TableCell>

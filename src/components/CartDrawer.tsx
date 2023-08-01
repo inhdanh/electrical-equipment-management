@@ -2,6 +2,7 @@ import {
   Avatar,
   Box,
   Button,
+  CircularProgress,
   Divider,
   Drawer,
   Paper,
@@ -22,19 +23,19 @@ import _ from "lodash";
 import { useRouter } from "next/navigation";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createOrder } from "@/api";
+import { toast } from "react-toastify";
 
 export default function CartDrawer() {
   const { carts, setCarts, openDrawer, setOpenDrawer } = useCartContext();
   const router = useRouter();
   const { user } = useUserContext();
-  const [openAlert, setOpenAlert] = useState(false);
 
   const mutation = useMutation({
     mutationFn: (newOrder: any) => createOrder(newOrder),
     onSuccess: (data) => {
       setOpenDrawer(false);
-      setOpenAlert(true);
-      router.push("/orders");
+      setCarts([]);
+      toast.success("Create order success");
     },
   });
 
@@ -160,6 +161,9 @@ export default function CartDrawer() {
             variant="contained"
             onClick={checkout}
           >
+            {mutation.isLoading && (
+              <CircularProgress sx={{ color: "white", mr: 1 }} />
+            )}
             Check out
           </Button>
         </Box>
@@ -182,12 +186,6 @@ export default function CartDrawer() {
           </Button>
         </Box>
       )}
-      <Snackbar
-        open={openAlert}
-        autoHideDuration={5000}
-        onClose={() => setOpenAlert(false)}
-        message="Create order success!"
-      />
     </Drawer>
   );
 }
