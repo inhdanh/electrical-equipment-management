@@ -5,6 +5,7 @@ import {
   Divider,
   Drawer,
   Paper,
+  Snackbar,
   Table,
   TableBody,
   TableCell,
@@ -15,15 +16,27 @@ import {
   Typography,
 } from "@mui/material";
 import { useCartContext } from "@/contexts/cart";
-import { ChangeEvent } from "react";
+import { ChangeEvent, useState } from "react";
 import { useUserContext } from "@/contexts/user";
 import _ from "lodash";
 import { useRouter } from "next/navigation";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { createOrder } from "@/api";
 
 export default function CartDrawer() {
   const { carts, setCarts, openDrawer, setOpenDrawer } = useCartContext();
   const router = useRouter();
   const { user } = useUserContext();
+  const [openAlert, setOpenAlert] = useState(false);
+
+  const mutation = useMutation({
+    mutationFn: (newOrder: any) => createOrder(newOrder),
+    onSuccess: (data) => {
+      setOpenDrawer(false);
+      setOpenAlert(true);
+      router.push("/orders");
+    },
+  });
 
   const handleChangeQuantity = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -62,9 +75,20 @@ export default function CartDrawer() {
 
     const payload = {
       userId: user?.id,
-      equipments: carts.map((cart) => _.pick(cart, ["id", "quantity"])),
+      address: user.address,
+      status: "pending",
+      totalPrice: carts
+        .reduce((total, current) => {
+          return (total += current.quantity * current.price);
+        }, 0)
+        .toString(),
+      orderItems: carts.map((cart) => ({
+        equipmentId: cart.id,
+        quantity: cart.quantity,
+      })),
     };
-    console.log("payload", payload);
+
+    mutation.mutate(payload);
   };
 
   return (
@@ -158,6 +182,12 @@ export default function CartDrawer() {
           </Button>
         </Box>
       )}
+      <Snackbar
+        open={openAlert}
+        autoHideDuration={5000}
+        onClose={() => setOpenAlert(false)}
+        message="Create order success!"
+      />
     </Drawer>
   );
 }

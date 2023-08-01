@@ -7,12 +7,12 @@ import { useRouter } from "next/navigation";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 interface Inputs {
-  username: string;
+  email: string;
   password: string;
 }
 
 export default function Login() {
-  const { user, setUser } = useUserContext();
+  const { setUser } = useUserContext();
   const router = useRouter();
 
   const {
@@ -24,21 +24,19 @@ export default function Login() {
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     setUser({
-      id: "6e8bbf94-8cdb-4e15-a219-d75748de1f74",
-      firstName: "John",
-      lastName: "Doe",
-      telephone: 1234567890,
+      id: "45a18267-ef49-48d5-a9b2-7462dbb34c44",
+      firstName: "Mike",
+      lastName: "Jackson",
+      telephone: 5555555555,
       address: "789 Pine Lane, Meadowville, NY 10001, USA",
-      email: "john.doe@example.com",
+      email: "mike.jackson@example.com",
       role: "user",
-      status: "active",
-      createdAt: "2023-07-27T10:00:00Z",
-      updatedAt: "2023-07-27T15:30:45Z",
+      status: "inactive",
+      createdAt: "2023-07-27T09:30:10Z",
+      updatedAt: "2023-07-27T14:10:30Z",
     });
     router.push("/");
   };
-
-  console.log(watch("username"));
 
   return (
     <Box
@@ -60,15 +58,17 @@ export default function Login() {
           <Box sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
             <TextField
               variant="standard"
-              label="Username"
-              {...register("username", { required: true })}
-              error={!!errors.username}
-              helperText={errors.username && "Please input your username!"}
+              label="Email"
+              defaultValue="mike.jackson@example.com"
+              {...register("email", { required: true })}
+              error={!!errors.email}
+              helperText={errors.email && "Please input your email!"}
             />
             <TextField
               variant="standard"
               label="Password"
               type="password"
+              defaultValue="test123456789"
               {...register("password", { required: true })}
               error={!!errors.password}
               helperText={errors.password && "Please input your password!"}

@@ -5,19 +5,19 @@ export const getEquipmentList = (params?: any) => {
 };
 
 export const getEquipmentById = (id: string) => {
-  return makeRequest.get(`/equipments/${id}`);
+  return makeRequest.get(`/equipments/id`, { params: { id } });
 };
 
 export const getVendorList = (params?: any) => {
-  return makeRequest.get("/vendors", { params });
+  return makeRequest.get("/vendor", { params });
 };
 
 export const getVendorById = (id: string) => {
-  return makeRequest.get(`/vendors/${id}`);
+  return makeRequest.get(`/vendor/id`, { params: { id } });
 };
 
-export const getMyOrderList = (params?: any) => {
-  return makeRequest.get("/orderDetails", { params });
+export const getMyOrderList = (id: string) => {
+  return makeRequest.get("/order/userid", { params: { id } });
 };
 
 export const getOrderItemList = (params?: any) => {
@@ -26,4 +26,8 @@ export const getOrderItemList = (params?: any) => {
 
 export const getUsers = (params?: any) => {
   return makeRequest.get("/users", { params });
+};
+
+export const createOrder = (payload: any) => {
+  return makeRequest.post("/order/create", payload);
 };

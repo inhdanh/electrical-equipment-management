@@ -24,14 +24,18 @@ import { useQuery } from "@tanstack/react-query";
 import moment from "moment";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useUserContext } from "@/contexts/user";
 
 export default function Login() {
   const [selectedOrder, setSelectedOrder] = useState<OrderDetail | null>(null);
+  const { user } = useUserContext();
   const router = useRouter();
 
   const query = useQuery({
-    queryKey: ["myOrders"],
-    queryFn: async () => await getMyOrderList(),
+    queryKey: ["myOrders", user?.id],
+    queryFn: async ({ queryKey }) =>
+      await getMyOrderList(queryKey[1] as string),
+    enabled: !!user?.id,
   });
 
   const queryItems = useQuery({
