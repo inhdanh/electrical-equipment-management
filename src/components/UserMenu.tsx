@@ -17,10 +17,11 @@ export default function UserMenu() {
 
   const logout = () => {
     setUser(null);
+    router.push("/");
   };
 
   return (
-    <Box>
+    <>
       <IconButton onClick={handleClick}>
         <Avatar>{`${user?.firstName?.at(0)}${user?.lastName?.at(0)}`}</Avatar>
       </IconButton>
@@ -28,6 +29,6 @@ export default function UserMenu() {
         <MenuItem onClick={() => router.push("/profile")}>Profile</MenuItem>
         <MenuItem onClick={logout}>Log out</MenuItem>
       </Menu>
-    </Box>
+    </>
   );
 }

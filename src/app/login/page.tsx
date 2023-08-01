@@ -1,10 +1,13 @@
 "use client";
 
+import { login } from "@/api";
 import { useUserContext } from "@/contexts/user";
 import { Box, Button, TextField, Typography } from "@mui/material";
+import { useMutation } from "@tanstack/react-query";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { toast } from "react-toastify";
 
 interface Inputs {
   email: string;
@@ -15,27 +18,23 @@ export default function Login() {
   const { setUser } = useUserContext();
   const router = useRouter();
 
+  const mutation = useMutation({
+    mutationFn: (data: any) => login(data),
+    onSuccess: (data) => {
+      setUser(data.data);
+      router.push("/");
+      toast.success(`Welcome back ${data.data.firstName}`);
+    },
+  });
+
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    setUser({
-      id: "45a18267-ef49-48d5-a9b2-7462dbb34c44",
-      firstName: "Mike",
-      lastName: "Jackson",
-      telephone: 5555555555,
-      address: "789 Pine Lane, Meadowville, NY 10001, USA",
-      email: "mike.jackson@example.com",
-      role: "user",
-      status: "inactive",
-      createdAt: "2023-07-27T09:30:10Z",
-      updatedAt: "2023-07-27T14:10:30Z",
-    });
-    router.push("/");
+    mutation.mutate(data);
   };
 
   return (
@@ -68,7 +67,7 @@ export default function Login() {
               variant="standard"
               label="Password"
               type="password"
-              defaultValue="test123456789"
+              defaultValue="111111"
               {...register("password", { required: true })}
               error={!!errors.password}
               helperText={errors.password && "Please input your password!"}

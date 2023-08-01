@@ -6,7 +6,6 @@ import {
   Divider,
   Drawer,
   Paper,
-  Snackbar,
   Table,
   TableBody,
   TableCell,
@@ -17,7 +16,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useCartContext } from "@/contexts/cart";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent } from "react";
 import { useUserContext } from "@/contexts/user";
 import _ from "lodash";
 import { useRouter } from "next/navigation";
@@ -29,10 +28,12 @@ export default function CartDrawer() {
   const { carts, setCarts, openDrawer, setOpenDrawer } = useCartContext();
   const router = useRouter();
   const { user } = useUserContext();
+  const queryClient = useQueryClient();
 
   const mutation = useMutation({
     mutationFn: (newOrder: any) => createOrder(newOrder),
-    onSuccess: (data) => {
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["myOrders", user?.id] });
       setOpenDrawer(false);
       setCarts([]);
       toast.success("Create order success");

@@ -24,10 +24,22 @@ export const getOrderItemList = (params?: any) => {
   return makeRequest.get("/orderItems", { params });
 };
 
-export const getUsers = (params?: any) => {
-  return makeRequest.get("/users", { params });
+export const getUserById = (id: string) => {
+  return makeRequest.get("/user/id", { params: { id } });
 };
 
 export const createOrder = (payload: any) => {
   return makeRequest.post("/order/create", payload);
+};
+
+export const login = (payload: any) => {
+  return makeRequest.post("/user/login", payload);
+};
+
+export const registerUser = (payload: any) => {
+  return makeRequest.post("/user/create", payload);
+};
+
+export const updateUser = (payload: any) => {
+  return makeRequest.post("/user/update", payload);
 };

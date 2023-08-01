@@ -1,7 +1,8 @@
 "use client";
 
-import { getUsers } from "@/api";
+import { getUserById, updateUser } from "@/api";
 import FormInput from "@/components/FormInput";
+import { useUserContext } from "@/contexts/user";
 
 type Inputs = {
   email: string;
@@ -13,20 +14,22 @@ type Inputs = {
   address: string;
 };
 import { Box, Button, Container, TextField, Typography } from "@mui/material";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 export default function ProfilePage() {
   const { handleSubmit, setValue, control } = useForm<Inputs>();
+  const { user, setUser } = useUserContext();
 
   const query = useQuery({
-    queryKey: ["users"],
-    queryFn: async () => {
-      const res = await getUsers();
+    queryKey: ["user", user?.id],
+    queryFn: async ({ queryKey }) => {
+      const res = await getUserById(queryKey[1] as string);
 
       const { email, role, status, firstName, lastName, telephone, address } =
-        res.data.at(0);
+        res.data;
 
       setValue("email", email);
       setValue("role", role);
@@ -38,9 +41,20 @@ export default function ProfilePage() {
 
       return res;
     },
+    enabled: !!user?.id,
   });
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const mutation = useMutation({
+    mutationFn: (payload: any) => updateUser(payload),
+    onSuccess: (res) => {
+      setUser(res.data);
+      toast.success("Update profile success!");
+    },
+  });
+
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    mutation.mutate({ ...data, id: user?.id });
+  };
 
   return (
     <Container sx={{ mt: 5 }}>

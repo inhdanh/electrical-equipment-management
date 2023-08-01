@@ -10,21 +10,29 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import HomeIcon from "@mui/icons-material/Home";
-import NotificationsIcon from "@mui/icons-material/Notifications";
-import { Avatar, Badge, Button, Menu } from "@mui/material";
+import { Badge, Button } from "@mui/material";
 import { useRouter } from "next/navigation";
 import SidebarDrawer from "./SidebarDrawer";
 import CartDrawer from "./CartDrawer";
 import { useCartContext } from "@/contexts/cart";
 import UserMenu from "./UserMenu";
 import { useUserContext } from "@/contexts/user";
+import { useQuery } from "@tanstack/react-query";
+import { getMyOrderList } from "@/api";
 
 export default function PrimaryAppBar() {
   const [isOpenSidebar, setIsOpenSidebar] = useState(false);
   const { carts, setOpenDrawer } = useCartContext();
-  const { user, setUser } = useUserContext();
+  const { user } = useUserContext();
   const [cartsQuantity, setCartsQuantity] = useState(0);
   const router = useRouter();
+
+  const query = useQuery({
+    queryKey: ["myOrders", user?.id],
+    queryFn: async ({ queryKey }) =>
+      await getMyOrderList(queryKey[1] as string),
+    enabled: !!user?.id,
+  });
 
   useEffect(() => {
     const quantity = carts.reduce((total, current) => {
@@ -73,8 +81,11 @@ export default function PrimaryAppBar() {
               aria-label="menu"
               sx={{ mr: 2 }}
               onClick={() => router.push("/orders")}
+              title="Orders"
             >
-              <ShoppingBagIcon />
+              <Badge badgeContent={query.data?.data.length} color="secondary">
+                <ShoppingBagIcon />
+              </Badge>
             </IconButton>
 
             <IconButton
@@ -84,13 +95,14 @@ export default function PrimaryAppBar() {
               aria-label="menu"
               sx={{ mr: 2 }}
               onClick={() => setOpenDrawer(true)}
+              title="Carts"
             >
               <Badge badgeContent={cartsQuantity} color="error">
                 <ShoppingCartIcon />
               </Badge>
             </IconButton>
 
-            <IconButton
+            {/* <IconButton
               size="large"
               edge="start"
               color="inherit"
@@ -101,7 +113,7 @@ export default function PrimaryAppBar() {
               <Badge badgeContent={4} color="error">
                 <NotificationsIcon />
               </Badge>
-            </IconButton>
+            </IconButton> */}
 
             {user ? (
               <UserMenu />
